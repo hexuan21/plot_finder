@@ -93,6 +93,6 @@ def main(chunk_idx,chunk_size):
 
 
 if __name__ == "__main__":
-    chunk_idx=0
+    chunk_idx=1
     chunk_size=5000
     main(chunk_idx,chunk_size)
