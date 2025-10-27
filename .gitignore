@@ -1,6 +1,7 @@
 data/*
+!data/plot
+!data/plot/**
 !data/*.py
 !data/*.json
 
-*.txt
 *.json
