@@ -1,3 +1,6 @@
 data/*
 !data/*.py
 !data/*.json
+
+*.txt
+*.json
