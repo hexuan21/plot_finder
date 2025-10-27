@@ -42,7 +42,7 @@ def bm25_retrieval(
     if not movies:
         return []
 
-    corpus_tokens = [_tokenize("movie_name: "+m.get(title_key, "")+"\nsummary: "+m.get(summary_key, ""), "") or "", lowercase=lowercase) for m in movies]
+    corpus_tokens = [_tokenize("movie_name: "+m.get(title_key, "")+"\nsummary: "+m.get(summary_key, ""), lowercase=lowercase) or [""] for m in movies]
     bm25 = BM25Okapi(corpus_tokens)
 
     q_tokens = _tokenize(query, lowercase=lowercase)

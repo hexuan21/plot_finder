@@ -1,0 +1,16 @@
+name: plot_finder
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy=2.1.*
+  - scipy=1.14.*
+  - scikit-learn=1.5.*
+  - pip
+  - pip:
+    - sentence-transformers
+    - faiss-cpu
+    - wordcloud
+    - rank-bm25
+

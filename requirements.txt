@@ -4,3 +4,4 @@ scikit-learn==1.5.*
 sentence-transformers
 faiss-cpu
 wordcloud
+rank-bm25

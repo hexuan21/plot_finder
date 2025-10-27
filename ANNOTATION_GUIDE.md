@@ -1,5 +1,30 @@
 # 测试集标注指南
 
+## 📦 环境设置
+
+### 方法1：使用 Conda（推荐）
+
+```bash
+# 创建并激活环境
+./setup_env.sh
+
+# 或者手动创建
+conda env create -f environment.yml
+conda activate plot_finder
+```
+
+### 方法2：使用 pip
+
+```bash
+pip install -r requirements.txt
+```
+
+### 验证安装
+
+```bash
+python -c "from rank_bm25 import BM25Okapi; print('✅ BM25 installed')"
+```
+
 ## 🎯 目标
 
 收集 30-40 条测试样本，每个样本包含：
