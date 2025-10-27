@@ -1,0 +1,364 @@
+[
+    {
+        "query": "A forgetful pirate kills his captain for buried treasure, then depends on the ghost of his victim to help him find it.",
+        "source": {
+            "wiki_movie_id": "2940516",
+            "movie_name": "Ghost In The Noonday Sun"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "2940516",
+                "movie_name": "Ghost In The Noonday Sun",
+                "release_date": "1973",
+                "score": 66.0931
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "Raat",
+                "wiki_movie_id": "21062039",
+                "release_date": "1992-02-07",
+                "score": 43.4141
+            },
+            {
+                "movie_name": "Dancing Pirate",
+                "wiki_movie_id": "26191484",
+                "release_date": "1936-05-22",
+                "score": 43.3741
+            },
+            {
+                "movie_name": "Piraty XX veka",
+                "wiki_movie_id": "10531330",
+                "release_date": "1979",
+                "score": 43.2258
+            }
+        ]
+    },
+    {
+        "query": "When heir Alan Colby is murdered after returning from a long absence, the Lowell family unravels amid greed, psychic research, and a hunt for the killer.",
+        "source": {
+            "wiki_movie_id": "15072401",
+            "movie_name": "Charlie Chan's Secret"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "15072401",
+                "movie_name": "Charlie Chan's Secret",
+                "release_date": "1936-01-17",
+                "score": 97.1243
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "The Perfect Weapon",
+                "wiki_movie_id": "6471903",
+                "release_date": "1991-04-25",
+                "score": 45.5367
+            },
+            {
+                "movie_name": "The Triple Echo",
+                "wiki_movie_id": "8729494",
+                "release_date": "1972",
+                "score": 45.013
+            },
+            {
+                "movie_name": "Baby Take a Bow",
+                "wiki_movie_id": "15372410",
+                "release_date": "1934-06-30",
+                "score": 45.0034
+            }
+        ]
+    },
+    {
+        "query": "An ex-convict and his son rescue a stranded singer and her fiancé, only to face betrayal, danger, and redemption on a perilous river journey through the 1875 Northwest.",
+        "source": {
+            "wiki_movie_id": "1925869",
+            "movie_name": "River of No Return"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "1925869",
+                "movie_name": "River of No Return",
+                "release_date": "1954",
+                "score": 65.7837
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "Iron Road",
+                "wiki_movie_id": "23524959",
+                "release_date": "2009",
+                "score": 54.5983
+            },
+            {
+                "movie_name": "Just Like the Son",
+                "wiki_movie_id": "22768591",
+                "release_date": "2006",
+                "score": 54.5806
+            },
+            {
+                "movie_name": "Mehbooba",
+                "wiki_movie_id": "10778690",
+                "release_date": "1976-07-19",
+                "score": 54.5419
+            }
+        ]
+    },
+    {
+        "query": "A movie star hides his identity at college, but his managers plot to bring him back to Hollywood.",
+        "source": {
+            "wiki_movie_id": "24845777",
+            "movie_name": "Start Cheering"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "4018288",
+                "movie_name": "The Biggest Fan",
+                "release_date": "2002",
+                "score": 42.277
+            },
+            {
+                "wiki_movie_id": "24845777",
+                "movie_name": "Start Cheering",
+                "release_date": "1938",
+                "score": 40.2852
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "The Lost City",
+                "wiki_movie_id": "4878629",
+                "release_date": "2006-04-28",
+                "score": 35.3999
+            },
+            {
+                "movie_name": "Finding Bliss",
+                "wiki_movie_id": "22030425",
+                "release_date": "2010-06-11",
+                "score": 35.3737
+            },
+            {
+                "movie_name": "Mein Ek Din Laut Kay Aaoon Ga",
+                "wiki_movie_id": "12568590",
+                "release_date": "2007-08",
+                "score": 35.3434
+            }
+        ]
+    },
+    {
+        "query": "A doctor’s breakthrough cancer cure and a nurse’s desperate actions spark romance, jealousy, and deadly consequences.",
+        "source": {
+            "wiki_movie_id": "3978160",
+            "movie_name": "Gene-X"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "10746524",
+                "movie_name": "Remp-It",
+                "release_date": "2006-08-10",
+                "score": 31.4863
+            },
+            {
+                "wiki_movie_id": "3978160",
+                "movie_name": "Gene-X",
+                "release_date": "2006",
+                "score": 31.0802
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "The Breed",
+                "wiki_movie_id": "5649185",
+                "release_date": "2001-07-19",
+                "score": 27.073
+            },
+            {
+                "movie_name": "The Journal of a Schoolgirl",
+                "wiki_movie_id": "11450344",
+                "release_date": "2007-05-18",
+                "score": 26.845
+            },
+            {
+                "movie_name": "Over the Hill",
+                "wiki_movie_id": "26200434",
+                "release_date": "1992-06-30",
+                "score": 26.7165
+            }
+        ]
+    },
+    {
+        "query": "A gullible explosives expert is deceived into joining a criminal gang.",
+        "source": {
+            "wiki_movie_id": "19582424",
+            "movie_name": "There Was a Crooked Man"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "19582424",
+                "movie_name": "There Was a Crooked Man",
+                "release_date": "1960-08-31",
+                "score": 44.5682
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "Aparan",
+                "wiki_movie_id": "21132951",
+                "release_date": "1988",
+                "score": 20.878
+            },
+            {
+                "movie_name": "Little Annie Rooney",
+                "wiki_movie_id": "18963921",
+                "release_date": "1925-10-18",
+                "score": 20.8377
+            },
+            {
+                "movie_name": "Wild Rebels",
+                "wiki_movie_id": "8671750",
+                "release_date": "1967",
+                "score": 20.6585
+            }
+        ]
+    },
+    {
+        "query": "Agent 00 fights Mr. Giant’s criminal empire and a deadly new weapon, facing endless battles and bizarre challenges along the way.",
+        "source": {
+            "wiki_movie_id": "13895355",
+            "movie_name": "For Your Height Only"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "13895355",
+                "movie_name": "For Your Height Only",
+                "release_date": "1981",
+                "score": 50.3755
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "Superman",
+                "wiki_movie_id": "27148466",
+                "release_date": "1997",
+                "score": 29.9729
+            },
+            {
+                "movie_name": "Die Another Day",
+                "wiki_movie_id": "156644",
+                "release_date": "2002-11-18",
+                "score": 29.9586
+            },
+            {
+                "movie_name": "Rocky: The Rebel",
+                "wiki_movie_id": "7660519",
+                "release_date": "2006-09-22",
+                "score": 29.7384
+            }
+        ]
+    },
+    {
+        "query": "After her son grows sick and haunted by spirits during Ghost Month, a mother turns to mystic help to uncover what the dead want before time runs out.",
+        "source": {
+            "wiki_movie_id": "13166707",
+            "movie_name": "They Wait"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "13166707",
+                "movie_name": "They Wait",
+                "release_date": "2007",
+                "score": 71.6509
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "Challenge of a Lifetime",
+                "wiki_movie_id": "33689385",
+                "release_date": "1985-02-14",
+                "score": 45.437
+            },
+            {
+                "movie_name": "Helter Skelter",
+                "wiki_movie_id": "19418467",
+                "release_date": "",
+                "score": 45.4172
+            },
+            {
+                "movie_name": "Manichitrathazhu",
+                "wiki_movie_id": "1812196",
+                "release_date": "1993",
+                "score": 45.3589
+            }
+        ]
+    },
+    {
+        "query": "Orphaned by violence, two children must protect their baby sister and fight to survive alone on the streets of Diyarbakır.",
+        "source": {
+            "wiki_movie_id": "28236324",
+            "movie_name": "Min Dît: The Children of Diyarbakır"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "28236324",
+                "movie_name": "Min Dît: The Children of Diyarbakır",
+                "release_date": "2009",
+                "score": 52.7007
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "Legion",
+                "wiki_movie_id": "18473521",
+                "release_date": "2010-01-21",
+                "score": 37.3855
+            },
+            {
+                "movie_name": "Come Back, Africa",
+                "wiki_movie_id": "9252321",
+                "release_date": "1960",
+                "score": 37.3315
+            },
+            {
+                "movie_name": "L'Arbre aux esprits",
+                "wiki_movie_id": "34985332",
+                "release_date": "2005",
+                "score": 37.2221
+            }
+        ]
+    },
+    {
+        "query": "A bedridden woman overhears a murder plot on the telephone and, as she investigates, discovers her missing husband’s secrets and that she is the intended victim.",
+        "source": {
+            "wiki_movie_id": "183828",
+            "movie_name": "Sorry, Wrong Number"
+        },
+        "strong_matches": [
+            {
+                "wiki_movie_id": "183828",
+                "movie_name": "Sorry, Wrong Number",
+                "release_date": "1948-09-01",
+                "score": 65.9785
+            }
+        ],
+        "weak_matches": [
+            {
+                "movie_name": "The Long Kiss Goodnight",
+                "wiki_movie_id": "690042",
+                "release_date": "1996-10-11",
+                "score": 51.4887
+            },
+            {
+                "movie_name": "A Devilish Murder",
+                "wiki_movie_id": "15453009",
+                "release_date": "1965-08-12",
+                "score": 51.4721
+            },
+            {
+                "movie_name": "Million Dollar Legs",
+                "wiki_movie_id": "23939272",
+                "release_date": "1932",
+                "score": 51.311
+            }
+        ]
+    }
+]

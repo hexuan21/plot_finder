@@ -32,6 +32,10 @@ def main(chunk_idx,chunk_size):
 
     begin_idx=chunk_idx*chunk_size
     end_idx=(chunk_idx+1)*chunk_size
+    if begin_idx>len(plot_summ_data):
+        return
+    if end_idx>len(plot_summ_data):
+        end_idx=len(plot_summ_data)
     plot_summ_data=plot_summ_data[begin_idx:end_idx]
 
 
@@ -93,6 +97,6 @@ def main(chunk_idx,chunk_size):
 
 
 if __name__ == "__main__":
-    chunk_idx=1
     chunk_size=5000
-    main(chunk_idx,chunk_size)
+    for chunk_idx in range(2,9):
+        main(chunk_idx,chunk_size)
