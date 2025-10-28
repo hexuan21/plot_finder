@@ -12,44 +12,44 @@ from retrieval_method.bm25_retrieval import bm25_retrieval
 # These movies were selected to ensure genre diversity and good summary quality
 SELECTED_MOVIES = [
     {
-        "wiki_movie_id": "23890098",  # Taxi Blues (1990) - Drama
-        "query": "A taxi driver and a musician develop an unlikely friendship despite their different backgrounds and initial conflicts"
+        "wiki_movie_id": "6473343",  # One Hot Summer Night (1998) - Crime/Drama
+        "query": "A woman trapped in an abusive marriage starts an affair with a lawyer, only for her husband to turn up dead"
     },
     {
-        "wiki_movie_id": "18737103",  # On War (2008) - Drama/Comedy
-        "query": "A film director locks himself in a coffin by accident and becomes fascinated by death, eventually joining a mysterious cult"
+        "wiki_movie_id": "8267711",  # Perils of Nyoka (1942) - Action/Adventure
+        "query": "An adventurer searches for the ancient Golden Tablets of Hippocrates while being hunted by a ruthless queen"
     },
     {
-        "wiki_movie_id": "9720148",  # The Paper Chase (1973) - Drama/Coming of age
-        "query": "A hardworking law student faces intense pressure at Harvard while dealing with a demanding professor"
+        "wiki_movie_id": "18717177",  # Shrek (2001) - Animation/Comedy/Fantasy
+        "query": "An ogre's peaceful life is disrupted when he sets out to rescue a princess for a lord, only to fall in love with her himself"
     },
     {
-        "wiki_movie_id": "13023499",  # The April Fools (1969) - Romance/Comedy
-        "query": "Two people trapped in loveless marriages meet and fall in love at a party"
+        "wiki_movie_id": "26161289",  # Rechukka (1954) - Drama
+        "query": "A prince raised as a thief discovers his royal identity and fights to reclaim his kingdom from an evil minister"
     },
     {
-        "wiki_movie_id": "26007214",  # Crash! (1977) - Horror
-        "query": "A jealous invalid husband tries to kill his wife, who uses occult powers to defend herself"
+        "wiki_movie_id": "32655855",  # The Silence of Dean Maitland (1934) - Drama
+        "query": "A clergyman hides his guilt after his friend is wrongfully imprisoned for a death he caused"
     },
     {
-        "wiki_movie_id": "30366479",  # The Yin and the Yang of Mr. Go (1970) - Thriller
-        "query": "An American draft dodger becomes involved with an oriental organized crime mastermind"
+        "wiki_movie_id": "14320073",  # That Certain Woman (1937) - Romance/Drama
+        "query": "A young widow struggles with love, loss, and motherhood as she faces class prejudice and personal sacrifice"
     },
     {
-        "wiki_movie_id": "3645284",  # Under the Roofs of Paris (1930) - Romance/Melodrama
-        "query": "A poor street singer in Paris falls in love with a beautiful Romanian girl"
+        "wiki_movie_id": "25269403",  # A.D. (2010) - Horror/Animation
+        "query": "A group of survivors in Las Vegas must fight for their lives during a sudden zombie outbreak"
     },
     {
-        "wiki_movie_id": "4007440",  # Beach Blanket Bingo (1965) - Musical Comedy
-        "query": "A singer is unknowingly used for publicity stunts by her agent while romance blooms at the beach"
+        "wiki_movie_id": "15294037",  # Naked Blood (1996) - Horror/Japanese
+        "query": "A scientist’s experiment turning pain into pleasure spirals out of control as test subjects mutilate themselves"
     },
     {
-        "wiki_movie_id": "24955967",  # Ci Ling (2009) - Action/Adventure
-        "query": "Explorers search for a legendary tomb containing ancient treasures buried in the northwest desert"
+        "wiki_movie_id": "9381735",  # Kanda Naal Mudhal (2005) - Romantic Comedy
+        "query": "Two childhood rivals repeatedly cross paths as adults and unexpectedly fall in love after years of conflict"
     },
     {
-        "wiki_movie_id": "19156632",  # White Night Wedding (2008) - Drama
-        "query": "A wedding rehearsal in an isolated landscape is repeatedly interrupted revealing relationship tensions"
+        "wiki_movie_id": "18848055",  # Die Feuerzangenbowle (1944) - Comedy/Black-and-white
+        "query": "A successful writer disguises himself as a student to relive the school days he never had, causing humorous chaos"
     }
 ]
 
