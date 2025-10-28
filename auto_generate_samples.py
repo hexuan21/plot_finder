@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-自动生成测试样本：从原始数据中选择10部电影，创建query并自动标注
+Auto-generate test samples: Select 10 real movies from data, create queries and auto-annotate
 """
 
 import json
@@ -8,58 +8,59 @@ import random
 from pathlib import Path
 from retrieval_method.bm25_retrieval import bm25_retrieval
 
-# 手动精选的10部电影及其改编query
+# All IDs are verified to exist in the actual data files
+# These movies were selected to ensure genre diversity and good summary quality
 SELECTED_MOVIES = [
     {
-        "wiki_movie_id": "23890098",
+        "wiki_movie_id": "23890098",  # Taxi Blues (1990) - Drama
         "query": "A taxi driver and a musician develop an unlikely friendship despite their different backgrounds and initial conflicts"
     },
     {
-        "wiki_movie_id": "18737103", 
+        "wiki_movie_id": "18737103",  # On War (2008) - Drama/Comedy
         "query": "A film director locks himself in a coffin by accident and becomes fascinated by death, eventually joining a mysterious cult"
     },
     {
-        "wiki_movie_id": "15985034",
-        "query": "A woman believes she will marry her seventh boyfriend, but falls in love with number six and must find a replacement"
+        "wiki_movie_id": "9720148",  # The Paper Chase (1973) - Drama/Coming of age
+        "query": "A hardworking law student faces intense pressure at Harvard while dealing with a demanding professor"
     },
     {
-        "wiki_movie_id": "34114113",
-        "query": "After leaving prison, a woman searches for her unknown father among two men her mother once loved"
+        "wiki_movie_id": "13023499",  # The April Fools (1969) - Romance/Comedy
+        "query": "Two people trapped in loveless marriages meet and fall in love at a party"
     },
     {
-        "wiki_movie_id": "4996220",
-        "query": "A mystical shopkeeper with supernatural powers breaks sacred rules when she falls in love with a customer"
+        "wiki_movie_id": "26007214",  # Crash! (1977) - Horror
+        "query": "A jealous invalid husband tries to kill his wife, who uses occult powers to defend herself"
     },
     {
-        "wiki_movie_id": "35744959",
-        "query": "God plans to destroy Sodom, but the corrupt king schemes to swap places with the righteous man meant to be saved"
+        "wiki_movie_id": "30366479",  # The Yin and the Yang of Mr. Go (1970) - Thriller
+        "query": "An American draft dodger becomes involved with an oriental organized crime mastermind"
     },
     {
-        "wiki_movie_id": "20663735",
-        "query": "A man wrongly imprisoned for murder seeks revenge on those who framed him after his release from prison"
+        "wiki_movie_id": "3645284",  # Under the Roofs of Paris (1930) - Romance/Melodrama
+        "query": "A poor street singer in Paris falls in love with a beautiful Romanian girl"
     },
     {
-        "wiki_movie_id": "8598070",
-        "query": "Two skiers meet in Aspen and one follows the other across the country"
+        "wiki_movie_id": "4007440",  # Beach Blanket Bingo (1965) - Musical Comedy
+        "query": "A singer is unknowingly used for publicity stunts by her agent while romance blooms at the beach"
     },
     {
-        "wiki_movie_id": "3797781",
-        "query": "Two sisters go abroad for work, but conflict arises when one announces her pregnancy"
+        "wiki_movie_id": "24955967",  # Ci Ling (2009) - Action/Adventure
+        "query": "Explorers search for a legendary tomb containing ancient treasures buried in the northwest desert"
     },
     {
-        "wiki_movie_id": "31186339",
-        "query": "In a dystopian future, teenagers are forced to fight to the death in a televised competition until only one survives"
+        "wiki_movie_id": "19156632",  # White Night Wedding (2008) - Drama
+        "query": "A wedding rehearsal in an isolated landscape is repeatedly interrupted revealing relationship tensions"
     }
 ]
 
 def get_all_chunk_paths(data_dir="data"):
-    """获取所有数据chunk文件"""
+    """Get all data chunk file paths"""
     data_path = Path(data_dir)
     chunks = sorted(data_path.glob("all_info_chunk*.json"))
     return [str(p) for p in chunks]
 
 def load_all_movies(chunk_paths):
-    """加载所有电影数据"""
+    """Load all movie data from chunk files"""
     all_movies = []
     for path in chunk_paths:
         with open(path, 'r', encoding='utf-8') as f:
@@ -68,7 +69,7 @@ def load_all_movies(chunk_paths):
     return all_movies
 
 def find_movie_by_id(movies, movie_id):
-    """根据ID找到电影"""
+    """Find a movie by its wiki_movie_id"""
     for movie in movies:
         if movie.get('wiki_movie_id') == movie_id:
             return movie
@@ -76,15 +77,15 @@ def find_movie_by_id(movies, movie_id):
 
 def auto_select_matches(results, source_id):
     """
-    自动选择strong和weak matches
-    规则：
-    - Strong: source电影 + 分数>source*0.8的前2个
-    - Weak: 分数在source*0.4到source*0.8之间的，选4-6个
+    Automatically select strong and weak matches based on BM25 scores
+    Rules:
+    - Strong matches: source movie + top movies with score >= source*0.6 (max 3 total)
+    - Weak matches: movies with score between source*0.3 and source*0.6 (4-6 movies)
     """
     if not results:
         return [], []
     
-    # 找到source电影的分数
+    # Find the source movie's score
     source_score = None
     source_idx = None
     for i, r in enumerate(results):
@@ -94,15 +95,15 @@ def auto_select_matches(results, source_id):
             break
     
     if source_score is None:
-        # 如果找不到source，用第一个作为基准
+        # If source not found, use the top result as baseline
         source_score = results[0].get('_score', 100)
         source_idx = 0
     
     strong_matches = []
     weak_matches = []
     
-    # Strong matches: 包含source + 分数>=source*0.6的其他电影（最多3个）
-    for i, r in enumerate(results[:15]):  # 只看前15个
+    # Strong matches: include source + other movies with score >= source*0.6 (max 3 total)
+    for i, r in enumerate(results[:15]):  # Only check top 15
         score = r.get('_score', 0)
         if r.get('wiki_movie_id') == source_id:
             strong_matches.append({
@@ -119,11 +120,11 @@ def auto_select_matches(results, source_id):
                 "score": score
             })
     
-    # Weak matches: 分数在source*0.3到source*0.6之间的（4-6个）
-    for i, r in enumerate(results[:30]):  # 看前30个
+    # Weak matches: scores between source*0.3 and source*0.6 (4-6 movies)
+    for i, r in enumerate(results[:30]):  # Check top 30
         score = r.get('_score', 0)
         if source_score * 0.3 <= score < source_score * 0.6 and len(weak_matches) < 6:
-            if r.get('wiki_movie_id') != source_id:  # 不要重复source
+            if r.get('wiki_movie_id') != source_id:  # Don't duplicate source
                 weak_matches.append({
                     "wiki_movie_id": r.get('wiki_movie_id'),
                     "movie_name": r.get('movie_name'),
@@ -131,9 +132,9 @@ def auto_select_matches(results, source_id):
                     "score": score
                 })
     
-    # 如果weak matches不够，从中间分数区域补充
+    # If weak matches are insufficient, supplement from mid-range scores
     if len(weak_matches) < 3:
-        for i, r in enumerate(results[3:20]):  # 跳过前3个，看后面的
+        for i, r in enumerate(results[3:20]):  # Skip top 3, check rest
             if len(weak_matches) >= 5:
                 break
             if r.get('wiki_movie_id') not in [m['wiki_movie_id'] for m in strong_matches + weak_matches]:
@@ -147,15 +148,15 @@ def auto_select_matches(results, source_id):
     return strong_matches, weak_matches
 
 def generate_test_samples():
-    """生成10个测试样本"""
-    print("🚀 开始自动生成测试样本...")
+    """Generate 10 test samples by running BM25 retrieval and auto-selecting matches"""
+    print("🚀 Starting automatic test sample generation...")
     
-    # 加载所有数据
+    # Load all data
     chunk_paths = get_all_chunk_paths("data")
-    print(f"📚 加载数据文件: {len(chunk_paths)} 个")
+    print(f"📚 Loading data files: {len(chunk_paths)} chunks")
     
     all_movies = load_all_movies(chunk_paths)
-    print(f"🎬 总共加载电影: {len(all_movies)} 部")
+    print(f"🎬 Total movies loaded: {len(all_movies)} movies")
     
     new_samples = []
     
@@ -164,18 +165,18 @@ def generate_test_samples():
         query = selected['query']
         
         print(f"\n{'='*80}")
-        print(f"[{idx}/10] 处理: {query[:60]}...")
+        print(f"[{idx}/10] Processing: {query[:60]}...")
         
-        # 找到source电影
+        # Find the source movie
         source_movie = find_movie_by_id(all_movies, movie_id)
         if not source_movie:
-            print(f"⚠️  找不到电影 {movie_id}，跳过")
+            print(f"⚠️  Movie {movie_id} not found, skipping")
             continue
         
         print(f"    Source: {source_movie['movie_name']} ({source_movie['release_date']})")
         
-        # BM25检索
-        print(f"    🔍 BM25检索中...")
+        # Run BM25 retrieval
+        print(f"    🔍 Running BM25 retrieval...")
         results = bm25_retrieval(
             json_path_list=chunk_paths,
             query=query,
@@ -186,17 +187,17 @@ def generate_test_samples():
         )
         
         if not results:
-            print(f"    ⚠️  没有检索结果，跳过")
+            print(f"    ⚠️  No retrieval results, skipping")
             continue
         
-        print(f"    ✅ 找到 {len(results)} 个结果")
+        print(f"    ✅ Found {len(results)} results")
         
-        # 自动选择matches
+        # Auto-select matches
         strong_matches, weak_matches = auto_select_matches(results, movie_id)
         
-        print(f"    📊 Strong: {len(strong_matches)} 个, Weak: {len(weak_matches)} 个")
+        print(f"    📊 Strong: {len(strong_matches)} movies, Weak: {len(weak_matches)} movies")
         
-        # 构建样本
+        # Build sample
         sample = {
             "query": query,
             "source": {
@@ -209,7 +210,7 @@ def generate_test_samples():
         
         new_samples.append(sample)
         
-        # 显示匹配的电影
+        # Display matched movies
         print(f"    Strong matches:")
         for m in strong_matches[:2]:
             print(f"      - {m['movie_name']} ({m['release_date']}) [{m['score']:.2f}]")
@@ -218,57 +219,57 @@ def generate_test_samples():
             print(f"      - {m['movie_name']} ({m['release_date']}) [{m['score']:.2f}]")
     
     print(f"\n{'='*80}")
-    print(f"✅ 生成完成! 共 {len(new_samples)} 个样本")
+    print(f"✅ Generation complete! Total: {len(new_samples)} samples")
     
     return new_samples
 
 def save_samples(new_samples, output_path="data/test_data.json"):
-    """保存样本到文件"""
-    # 加载现有样本
+    """Save samples to file by appending to existing samples"""
+    # Load existing samples
     existing = []
     if Path(output_path).exists():
         with open(output_path, 'r', encoding='utf-8') as f:
             existing = json.load(f)
     
-    print(f"\n📝 现有样本: {len(existing)} 个")
+    print(f"\n📝 Existing samples: {len(existing)} samples")
     
-    # 追加新样本
+    # Append new samples
     existing.extend(new_samples)
     
-    # 保存
+    # Save to file
     with open(output_path, 'w', encoding='utf-8') as f:
         json.dump(existing, f, ensure_ascii=False, indent=4)
     
-    print(f"💾 已保存到: {output_path}")
-    print(f"📊 总样本数: {len(existing)} 个")
+    print(f"💾 Saved to: {output_path}")
+    print(f"📊 Total samples: {len(existing)} samples")
 
 def main():
     print("="*80)
-    print("自动测试样本生成器")
+    print("Automatic Test Sample Generator")
     print("="*80)
     
-    # 生成样本
+    # Generate samples
     new_samples = generate_test_samples()
     
     if not new_samples:
-        print("\n❌ 没有生成任何样本")
+        print("\n❌ No samples generated")
         return
     
-    # 确认保存
+    # Confirm save
     print(f"\n{'='*80}")
-    print("准备保存到 data/test_data.json")
-    confirm = input("是否保存? (y/n): ").strip().lower()
+    print("Ready to save to data/test_data.json")
+    confirm = input("Save to file? (y/n): ").strip().lower()
     
     if confirm == 'y':
         save_samples(new_samples)
-        print("\n✅ 完成!")
+        print("\n✅ Done!")
     else:
-        print("\n❌ 已取消")
-        # 可选：保存到临时文件
+        print("\n❌ Cancelled")
+        # Optional: save to temporary file
         temp_path = "data/test_data_new.json"
         with open(temp_path, 'w', encoding='utf-8') as f:
             json.dump(new_samples, f, ensure_ascii=False, indent=4)
-        print(f"💾 新样本已保存到: {temp_path}")
+        print(f"💾 New samples saved to: {temp_path}")
 
 if __name__ == "__main__":
     main()
