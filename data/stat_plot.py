@@ -11,11 +11,12 @@ def word_cloud(
 ):
     summary_list=[x['summary'] for x in data]
     combined_text = " ".join(summary_list)
-    combined_text=combined_text.replace("s", "")
-    trigger_words=[" s","s "
-                   " wa"," ha"," thi"," tt"," ve"," ay"," gy"]
-    for word in trigger_words:
-        combined_text=combined_text.replace(word, " ")
+    text_list=combined_text.split(" ")
+    new_text_list=[]
+    for x in text_list:
+        if len(x)>2:
+            new_text_list.append(x)
+    combined_text=" ".join(new_text_list)
     
     # Create and generate the word cloud
     background_color="white"
@@ -148,7 +149,7 @@ if __name__ == "__main__":
         with open(json_f, 'r', encoding='utf-8') as f:
             data.extend(json.load(f))
     
-    # word_cloud(summary_list)
+    word_cloud(data)
     # summ_len_hist(data)
     # release_year_hist(data)
-    run_time_hist(data)
+    # run_time_hist(data)

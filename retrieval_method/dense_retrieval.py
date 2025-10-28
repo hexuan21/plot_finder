@@ -93,6 +93,7 @@ def dense_retrieval(
     return results
 
 if __name__ == "__main__":
+    ### example
     hits = dense_retrieval(
         "two strangers meet on a train and fall in love",
         k=5,
