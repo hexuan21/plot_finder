@@ -131,8 +131,8 @@ if __name__ == "__main__":
     for r in dpr_search(q, top_k=5):
         print(r["score"], r["title"])
 
-    print("\n=== year_range=(1990, 2010), genre='Animation' ===")
-    for r in dpr_search(q, top_k=5, year_range=(1990, 2010), genre="Animation"):
+    print("\n=== country='United Stats of America' & genre='Animation' ===")
+    for r in dpr_search(q, top_k=5, country='United Stats of America', genre="Animation"):
         print(r["score"], r["title"], r["movie_info"].get("release_date"), r["movie_info"].get("genres"))
 
     print("time_cost: ", round(time.time() - start_time, 3))

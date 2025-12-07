@@ -59,6 +59,8 @@ def bm25_search(
     year_range: Optional[Tuple[int, int]] = None,
     genre: Optional[str] = None,
     country: Optional[str] = None,
+    use_rerank: Optional[bool] = False,
+    rerank_candidate_num: Optional[int] = 50,
 ) -> List[Dict]:
 
     global _BM25_INDEX, _BM25_TITLES, _BM25_META, DATA_PATH_LIST
