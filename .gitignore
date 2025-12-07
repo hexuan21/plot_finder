@@ -1,8 +1,8 @@
-data/cms
-data/embeddings
-data/imdb
-data/imdb_1000
-data/index
-data/raw
+data/intermediate
+data/intermediate
+data/raw*
+data/_*
 
-*.json
+src/_*
+
+**/__pycache*
